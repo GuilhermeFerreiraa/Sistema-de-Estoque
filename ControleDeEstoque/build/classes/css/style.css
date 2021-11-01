@@ -1,0 +1,106 @@
+.corpo {
+  -fx-text-fill: #586662;
+  -fx-font-family: 'System';
+  -fx-background-color: #fff;
+}
+
+.btn {
+  -fx-text-fill: #586662;
+  -fx-font-family: 'System';
+  -fx-border-color: #9ee3f5;
+  -fx-background-color: #fff;
+}
+
+.btn:hover {
+  -fx-width: auto;
+  -fx-height: auto;
+  -fx-text-fill: #fff;
+  -fx-border-color: #9ee3f5;
+  -fx-background-color: #9ee3f5;
+  -fx-border-radius: 1;
+}
+
+.btn-login {
+  -fx-min-width: 66px;
+  -fx-min-height: 25px;
+  -fx-text-fill: #586662;
+  -fx-font-weight: bold;
+  -fx-font-family: 'System';
+  -fx-border-color: #9ee3f5;
+  -fx-background-color: #fff;
+  -fx-border-radius: 1;
+}
+
+.btn-login:hover {
+  -fx-min-width: 66px;
+  -fx-min-height: 25px;
+  -fx-text-fill: #fff;
+  -fx-border-color: #9ee3f5;
+  -fx-background-color: #9ee3f5;
+  -fx-border-radius: 1;
+  -fx-font-size: 13px;
+}
+
+.text-login {
+  -fx-text-fill: #586662;
+  -fx-border-color: #9ee3f5;
+  -fx-background-color: #fff;
+  -fx-border-radius: 1;
+}
+
+.text-login:focused {
+  -fx-border-color: #9ee3f5;
+  -fx-background-color: #fff;
+  -fx-border-radius: 1;
+}
+
+.btn-sair {
+  -fx-text-fill: #f70202;
+  -fx-font-family: 'System';
+  -fx-border-color: #f70202;
+  -fx-background-color: #fff;
+  -fx-border-radius: 1;
+}
+
+.btn-sair:hover {
+  -fx-text-fill: #fff;
+  -fx-border-color: #f70202;
+  -fx-background-color: #f70202;
+  -fx-border-radius: 1;
+}
+
+.btn-yellow {
+  -fx-text-fill: #586662;
+  -fx-font-family: 'System';
+  -fx-border-color: #f48c42;
+  -fx-background-color: #fff;
+  -fx-border-radius: 1;
+}
+
+.btn-yellow:hover {
+  -fx-width: auto;
+  -fx-height: auto;
+  -fx-text-fill: #fff;
+  -fx-font-weight: bold;
+  -fx-border-color: #f48c42;
+  -fx-background-color: #f48c42;
+  -fx-border-radius: 1;
+}
+
+.text-yellow {
+  -fx-width: auto;
+  -fx-height: auto;
+  -fx-text-fill: #fff;
+  -fx-border-color: #f48c42;
+  -fx-background-color: #f48c42;
+  -fx-border-radius: 1;
+}
+
+.corpo-yellow {
+
+  -fx-font-weight: bold;
+  -fx-font-family: 'System';
+  -fx-border-color: #f48c42;
+  -fx-background-color: #fff;
+  -fx-border-radius: 1;
+}

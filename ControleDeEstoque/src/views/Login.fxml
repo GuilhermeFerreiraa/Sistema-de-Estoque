@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" styleClass="corpo" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.Login">
+   <children>
+      <Pane layoutX="-1.0" layoutY="-3.0" prefHeight="555.0" prefWidth="606.0" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-3.0">
+         <children>
+            <Button id="btEntrar" fx:id="btEntrar" layoutX="253.0" layoutY="462.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logar" prefHeight="31.0" prefWidth="100.0" styleClass="btn-login" stylesheets="@../css/style.css" text="Entrar">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="277.0" fitWidth="417.0" layoutX="95.0" layoutY="3.0">
+               <image>
+                  <Image url="@../images/imageLogin.png" />
+               </image>
+            </ImageView>
+            <PasswordField fx:id="txtPassword" alignment="TOP_LEFT" layoutX="161.0" layoutY="393.0" prefHeight="25.0" prefWidth="280.0" promptText="Digite sua senha" styleClass="text-login" stylesheets="@../css/style.css">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <TextField fx:id="txtLogin" alignment="TOP_LEFT" layoutX="161.0" layoutY="315.0" prefHeight="25.0" prefWidth="280.0" promptText="Digite seu login" styleClass="text-login" stylesheets="@../css/style.css">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label id="lbLogin" layoutX="163.0" layoutY="292.0" text="Login" textFill="#586662">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label id="lbSenha" layoutX="161.0" layoutY="371.0" text="Senha" textFill="#586662">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <Blend />
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>
