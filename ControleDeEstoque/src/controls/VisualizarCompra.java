@@ -7,28 +7,23 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Compra;
 import models.Produto;
-import models.Usuario;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class VisualizarCompra implements Initializable{
+public class VisualizarCompra implements Initializable {
 
-    @FXML
-    private Button btVoltar;
+
 
     @FXML
     private TextField txUsuario;
@@ -51,11 +46,8 @@ public class VisualizarCompra implements Initializable{
     @FXML
     private TextField txDataPrevista;
 
-    @FXML
-    private AnchorPane apPane;
-
-    @FXML
-
+    
+    @FXML    
     Compra compra = new Compra();
     boolean view;
 
@@ -64,14 +56,14 @@ public class VisualizarCompra implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try{
+        try {
             fillFields();
-            if (view)
+            if (view) {
                 btVisualizar.setVisible(false);
-            else
+            } else {
                 btVisualizar.setVisible(true);
-        }catch (Exception e) {
-            e.printStackTrace();
+            }
+        } catch (Exception e) {
         }
     }
 
@@ -85,29 +77,28 @@ public class VisualizarCompra implements Initializable{
         Main.stage.hide();
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
-        //primaryStage.initModality(Modality.WINDOW_MODAL);
-        //primaryStage.initOwner(apPane.getScene().getWindow());
+        primaryStage.initModality(Modality.WINDOW_MODAL);
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
-    public VisualizarCompra(){
+    public VisualizarCompra() {
 
     }
-    public VisualizarCompra(Compra compra, boolean view){
+
+    public VisualizarCompra(Compra compra, boolean view) {
         this.compra = compra;
         this.view = view;
     }
 
-
     public void botaoVoltar() throws IOException {
-        if (view)
+        if (view) {
             new Historico().show();
-//        else
-//            new Compra().show();
+        } else {
+            new NovaCompra().show();
+        }
     }
-
 
     public void botaoFinalizar() throws ClassNotFoundException, IOException {
 
@@ -115,19 +106,18 @@ public class VisualizarCompra implements Initializable{
         alert.setTitle("Finalizar Pedido");
         alert.setResizable(false);
         alert.setHeaderText("Deseja Finalizar o Pedido de Compra?");
-        alert.setContentText("Após finalizada, a compra aparecerá no histórico e será acrescentado os \n produtos no estoque.\n Deseja Finalizar");
+        alert.setContentText("Após finalizada, a compra aparecerá no histórico e será acrescentado os produtos no estoque.\nDeseja Finalizar");
         alert.getButtonTypes();
 
         Optional<ButtonType> result = alert.showAndWait();
-        if(!result.isPresent())
-            return;
-        else if(result.get() == ButtonType.OK) {
+        if (!result.isPresent()) {
+        } else if (result.get() == ButtonType.OK) {
             compra.setStatus(1);
             compra.setDataFinal(new Date(System.currentTimeMillis()));
             cdao.up(compra);
 
             //Atualizando Produtos
-            for(Produto p: compra.getProdutos()){
+            for (Produto p : compra.getProdutos()) {
                 Produto pEstoque = pdao.read(p.getId());
                 pEstoque.setQtd(pEstoque.getQtd() + p.getQtd());
                 pdao.up(pEstoque);
@@ -137,20 +127,19 @@ public class VisualizarCompra implements Initializable{
             alert1.setTitle("Pedido Finalizado");
             alert1.setContentText("Pedido Finalizado");
             alert1.showAndWait();
-//            new Compra().show();
-        }
-        else if(result.get() == ButtonType.CANCEL)
-            return;
+            new NovaCompra().show();
 
+        } else if (result.get() == ButtonType.CANCEL) {
+        }
 
     }
-    public void fillFields(){
+
+    public void fillFields() {
         txDataPedido.setText(compra.getData().toString());
         txDataPrevista.setText(compra.getDataEntrega().toString());
         txId.setText(String.valueOf(compra.getId()));
         txTotal.setText(String.valueOf(compra.getValor()));
         txUsuario.setText(compra.getUsuario().getNome());
-
 
         tbProdutos.getItems().clear();
         tbProdutos.getColumns().clear();

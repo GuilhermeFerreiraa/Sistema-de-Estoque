@@ -81,7 +81,6 @@ public class GerenciarFornecedor implements Initializable {
             visualizar();
             ativarBotaoSalvar();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -96,7 +95,7 @@ public class GerenciarFornecedor implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(true);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -106,12 +105,12 @@ public class GerenciarFornecedor implements Initializable {
         root.setControllerFactory(c -> {
             return new GerenciarFornecedor(view, edit, id);
         });
-        primaryStage.setTitle("ControlX - Gerenciar Fornecedor");
+        primaryStage.setTitle("Gerenciar Fornecedor");
         Main.stage.hide();
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(true);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 

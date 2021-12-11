@@ -36,7 +36,7 @@ public class Usuarios implements Initializable {
     @FXML
     private Button btView;
 
-    private UsuarioDAO udao = new UsuarioDAO();
+    private final UsuarioDAO udao = new UsuarioDAO();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,7 +44,6 @@ public class Usuarios implements Initializable {
             listView(udao.listAll());
             verificaSelecao();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -59,7 +58,7 @@ public class Usuarios implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(true);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -112,7 +111,7 @@ public class Usuarios implements Initializable {
             udao.del(udao.read(tbView.getSelectionModel().getSelectedItem().getId()));
             listView(udao.listAll());
         } else {
-            // ... user chose CANCEL or closed the dialog
+            // ... user choose CANCEL or closed the dialog
         }
     }
 

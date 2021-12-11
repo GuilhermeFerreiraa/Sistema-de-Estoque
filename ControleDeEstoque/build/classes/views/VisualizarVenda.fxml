@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="apPane" prefHeight="609.0" prefWidth="600.0" styleClass="corpo-yellow" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.VisualizarVenda">
+<AnchorPane fx:id="pane" prefHeight="609.0" prefWidth="600.0" styleClass="corpo-yellow" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controls.VisualizarVenda">
     <children>
-        <Label fx:id="lbCompraNum" layoutX="219.0" layoutY="41.0" prefHeight="25.0" prefWidth="22.0" text="ID" AnchorPane.topAnchor="41.0">
+        <Label fx:id="lbCompraNum" layoutX="225.0" layoutY="41.0" prefHeight="25.0" prefWidth="22.0" text="ID" AnchorPane.topAnchor="41.0">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font></Label>
@@ -33,9 +33,9 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <TextField fx:id="txId" alignment="CENTER" editable="false" layoutX="59.0" layoutY="65.0" prefHeight="25.0" prefWidth="149.0" styleClass="text-yellow" AnchorPane.rightAnchor="392.0" AnchorPane.topAnchor="65.0" />
+        <TextField fx:id="txId" alignment="CENTER" editable="false" layoutX="226.0" layoutY="66.0" prefHeight="25.0" prefWidth="149.0" styleClass="text-yellow" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="66.0" />
         <TextField fx:id="txUsuario" editable="false" layoutX="104.0" layoutY="14.0" prefHeight="27.0" prefWidth="439.0" styleClass="text-yellow" AnchorPane.leftAnchor="104.0" />
-        <TextField fx:id="txDataVenda" editable="false" layoutX="219.0" layoutY="66.0" prefHeight="25.0" prefWidth="149.0" styleClass="text-yellow" />
+        <TextField fx:id="txDataVenda" editable="false" layoutX="60.0" layoutY="66.0" prefHeight="25.0" prefWidth="149.0" styleClass="text-yellow" />
         <Label layoutX="59.0" layoutY="96.0" text="Produtos da venda" AnchorPane.leftAnchor="59.0">
             <font>
                 <Font name="System Bold" size="12.0" />

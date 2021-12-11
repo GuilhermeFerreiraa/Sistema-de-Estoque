@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class VendaDAO {
 
             for (Produto p: v.getProdutos()) {
 
+                @SuppressWarnings("UnusedAssignment")
                 PreparedStatement st = null;
                 Connection conn = ConnectionFactory.getConnection();
 
@@ -68,7 +70,6 @@ public class VendaDAO {
             }
             sucess = true;
         } catch (SQLException e) {
-            e.printStackTrace();
             sucess = false;
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
@@ -78,13 +79,16 @@ public class VendaDAO {
     }
 
 
+    @SuppressWarnings("UnusedAssignment")
     public int getIdVenda() throws ClassNotFoundException, SQLException {
 
         Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
+        @SuppressWarnings("UnusedAssignment")
+        PreparedStatement stmt;
+        stmt = null;
         ResultSet rs = null;
 
-        stmt = con.prepareStatement("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'controlx' AND TABLE_NAME = 'vendas'");
+        stmt = con.prepareStatement("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'estoque' AND TABLE_NAME = 'vendas'");
         rs = stmt.executeQuery();
         if (rs.next()) {
             int id = (rs.getInt("AUTO_INCREMENT"));
@@ -117,7 +121,6 @@ public class VendaDAO {
                 lista.add(vd);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -135,10 +138,10 @@ public class VendaDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Venda venda = new Venda();
-        UsuarioDAO uDAO = new UsuarioDAO();
-        ProdutoDAO pDAO = new ProdutoDAO();
-
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        @SuppressWarnings("LocalVariableHidesMemberVariable")
+        UsuarioDAO uDAO;
+        uDAO = new UsuarioDAO();
+        
 
         try {
             stmt = con.prepareStatement("SELECT * FROM vendas WHERE id = ?");
@@ -169,7 +172,6 @@ public class VendaDAO {
 
             venda.setProdutos(lista);
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }

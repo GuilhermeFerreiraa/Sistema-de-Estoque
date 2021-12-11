@@ -8,7 +8,7 @@ public class Venda {
     private int id;
     private Usuario usuario;
     private double valor;
-    private List<Produto> produtos = new ArrayList<Produto>();
+    private List<Produto> produtos = new ArrayList<>();
     private Date data = new Date();
 
     //GET and SET

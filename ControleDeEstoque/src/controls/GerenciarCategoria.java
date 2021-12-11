@@ -50,7 +50,6 @@ public class GerenciarCategoria implements Initializable {
             try {
                 txId.setText(Integer.toString(cdao.idAutoIncrement()));
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
         }
 
@@ -61,7 +60,6 @@ public class GerenciarCategoria implements Initializable {
                 btCancelar.setText("Voltar");
                 preencher();
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
         }
 
@@ -69,7 +67,6 @@ public class GerenciarCategoria implements Initializable {
             try {
                 preencher();
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
         }
     }
@@ -111,7 +108,7 @@ public class GerenciarCategoria implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 

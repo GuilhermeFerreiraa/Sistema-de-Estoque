@@ -37,7 +37,6 @@ public class FornecedorDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -67,7 +66,6 @@ public class FornecedorDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -100,7 +98,6 @@ public class FornecedorDAO {
                 lista.add(forn);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -135,7 +132,6 @@ public class FornecedorDAO {
                 lista.add(forn);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -170,7 +166,6 @@ public class FornecedorDAO {
                 lista.add(forn);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -196,7 +191,6 @@ public class FornecedorDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -230,7 +224,6 @@ public class FornecedorDAO {
                 forn.setEstado(rs.getString("estado"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return forn;
@@ -244,14 +237,13 @@ public class FornecedorDAO {
         ResultSet rs = null;
 
         try {
-            stmt = con.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'fornecedor' AND table_schema = 'controlx'");
+            stmt = con.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'fornecedor' AND table_schema = 'estoque'");
             rs = stmt.executeQuery();
 
             if (rs.next()){
                 id = rs.getInt("AUTO_INCREMENT");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return id;

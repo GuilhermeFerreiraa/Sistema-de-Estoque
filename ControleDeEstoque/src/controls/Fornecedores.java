@@ -46,7 +46,6 @@ public class Fornecedores implements Initializable {
             listView(fdao.listAll());
             verificaSelecao();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -61,7 +60,7 @@ public class Fornecedores implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(true);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -110,8 +109,8 @@ public class Fornecedores implements Initializable {
 
         if (lista.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("ControlX - Remover fornecedor");
-            alert.setHeaderText("Este fornecedor serÃ¡ removida permanentemente.");
+            alert.setTitle("Remover fornecedor");
+            alert.setHeaderText("Este fornecedor será removida permanentemente.");
             alert.setContentText("Deseja continuar?");
 
             Optional<ButtonType> result = alert.showAndWait();
@@ -123,8 +122,8 @@ public class Fornecedores implements Initializable {
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("ControlX - Aviso");
-            alert.setHeaderText("NÃ£o Ã© possÃ­vel remover este fornecedor");
+            alert.setTitle("Aviso");
+            alert.setHeaderText("Não é possível remover este fornecedor");
             alert.setContentText("Existem um ou mais produtos cadastrados\n com este fornecedor.");
 
             alert.showAndWait();

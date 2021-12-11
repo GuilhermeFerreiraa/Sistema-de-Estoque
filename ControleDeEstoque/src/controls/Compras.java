@@ -43,7 +43,6 @@ public class Compras implements Initializable {
             verificaSelecao();
             verificaData();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -58,7 +57,7 @@ public class Compras implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 

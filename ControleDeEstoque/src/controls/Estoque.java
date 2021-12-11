@@ -58,7 +58,6 @@ public class Estoque implements Initializable {
             iniComboBox();
             verificaSelecao();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -73,7 +72,7 @@ public class Estoque implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(true);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 

@@ -111,8 +111,7 @@ public class NovaCompra implements Initializable {
             else{
                 getUser();
             }
-        }catch (Exception e) {
-            e.printStackTrace();
+        }catch (ClassNotFoundException e) {
         }
     }
 
@@ -140,7 +139,7 @@ public class NovaCompra implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -155,7 +154,7 @@ public class NovaCompra implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -238,7 +237,7 @@ public class NovaCompra implements Initializable {
                 return;
             }
         }
-        if (Double.parseDouble(txPrecoCompra.getText()) > pro.getPreco()) {//Se PreÃ§o compra for maior que preÃ§o venda
+        if (Double.parseDouble(txPrecoCompra.getText()) > pro.getPreco()) {//Se Preço compra for maior que preço venda
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Aviso");
             alert.setResizable(false);
@@ -250,7 +249,7 @@ public class NovaCompra implements Initializable {
             if(!result.isPresent())
                 return;
             else if(result.get() == ButtonType.OK) {
-                //Lista estÃ¡tica produtos terÃ¡ como qtd a quantidade de produto que foi vendida
+                //Lista estática produtos terá como qtd a quantidade de produto que foi vendida
                 pro.setQtd(Double.parseDouble(txQtdCompra.getText()));
                 pro.setPreco(Double.parseDouble(txPrecoCompra.getText()));
                 //Adicionando o produto selecionado a lista
@@ -262,7 +261,7 @@ public class NovaCompra implements Initializable {
                 return;
 
         }
-        //Lista estÃ¡tica produtos terÃ¡ como qtd a quantidade de produto que foi vendida
+        //Lista estática produtos terá como qtd a quantidade de produto que foi vendida
         pro.setQtd(Double.parseDouble(txQtdCompra.getText()));
         pro.setPreco(Double.parseDouble(txPrecoCompra.getText()));
         //Adicionando o produto selecionado a lista
@@ -277,7 +276,7 @@ public class NovaCompra implements Initializable {
 
         ObservableList<Produto> prod = FXCollections.observableArrayList();
 
-        for (Produto p : produtos) { //Para cada produto presente na lista estÃ¡tica
+        for (Produto p : produtos) { //Para cada produto presente na lista estática
             //Adicionamos na observable list
             prod.add(new Produto(p.getId(), p.getNome(), p.getPreco(), p.getQtd(), p.getTipoUn(), p.getCat()));
         }
@@ -338,13 +337,13 @@ public class NovaCompra implements Initializable {
                 alert.setHeaderText("Compra agendada com sucesso");
                 alert.setContentText("A compra foi agendada com sucesso! \nCheque o histórico para mais detalhes.");
                 alert.showAndWait();
-//                new Compra().show();
+            new NovaCompra().show();
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Compra Malsucedida");
+                alert.setTitle("Compra Mal sucedida");
                 alert.setHeaderText("Algo deu errado");
-                alert.setContentText("Um erro inesperado aconteceu! A Compra nÃ£o foi finalizada.");
+                alert.setContentText("Um erro inesperado aconteceu! A Compra não foi finalizada.");
                 alert.showAndWait();
             }
         }
@@ -366,12 +365,12 @@ public class NovaCompra implements Initializable {
             pDAO.up(pEstoque);
         }
 
-//        if (sucess) {
-//            new Compra().show();
-//
-//        } else {
-//
-//        }
+        if (sucess) {
+            new NovaCompra().show();
+
+        } else {
+
+        }
 
         alert.showAndWait();
 
@@ -397,7 +396,7 @@ public class NovaCompra implements Initializable {
         else
             btRemover.setDisable(false);
     }else{
-        ///
+        //
     }
     }
 

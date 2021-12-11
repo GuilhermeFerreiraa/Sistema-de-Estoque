@@ -120,7 +120,6 @@ public class GerenciarUsuario implements Initializable {
                 txId.setText(Integer.toString(udao.idAutoIncrement()));
             }
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -135,7 +134,7 @@ public class GerenciarUsuario implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -150,7 +149,7 @@ public class GerenciarUsuario implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -189,14 +188,21 @@ public class GerenciarUsuario implements Initializable {
         txBairro.setText(u.getBairro());
         txCidade.setText(u.getCidade());
         txEstado.setText(u.getEstado());
-        if(u.getCargo() == 0){
-            cbCargo.setValue("Administrador");
-        } else if(u.getCargo() == 1){
-            cbCargo.setValue("Supervisor");
-        } else if(u.getCargo() == 2){
-            cbCargo.setValue("Almoxarife");
-        } else if(u.getCargo() == 3){
-            cbCargo.setValue("Caixa");
+        switch (u.getCargo()) {
+            case 0:
+                cbCargo.setValue("Administrador");
+                break;
+            case 1:
+                cbCargo.setValue("Supervisor");
+                break;
+            case 2:
+                cbCargo.setValue("Almoxarife");
+                break;
+            case 3:
+                cbCargo.setValue("Caixa");
+                break;
+            default:
+                break;
         }
         txLogin.setText(u.getLogin());
         txSenha.setText(u.getSenha());
@@ -225,13 +231,13 @@ public class GerenciarUsuario implements Initializable {
     }
 
     public void ativarBotaoSalvar(){
-        if(txNome.getText().isEmpty() || txCpf.getText().isEmpty() ||
+        if(dtDataNasc.getValue().equals("") ||
+                txNome.getText().isEmpty() || txCpf.getText().isEmpty() ||
                 txTel1.getText().isEmpty() ||
                 txCep.getText().isEmpty() || txNum.getText().isEmpty() || txRua.getText().isEmpty() ||
                 txBairro.getText().isEmpty() || txCidade.getText().isEmpty() ||
                 txEstado.getText().isEmpty() || cbCargo.getValue().equals("<Selecione>") ||
-                txLogin.getText().isEmpty() || txSenha.getText().isEmpty() ||
-                dtDataNasc.getValue().equals("") || !checklogin){
+                txLogin.getText().isEmpty() || txSenha.getText().isEmpty() || !checklogin){
 
             btSalvar.setDisable(true);
         } else {
@@ -269,7 +275,7 @@ public class GerenciarUsuario implements Initializable {
         }
         u.setDataNasc(Date.valueOf(dtDataNasc.getValue()));
         u.setTelefone1(txTel1.getText());
-        if(txTel2.getText() != "")
+        if(!"".equals(txTel2.getText()))
             u.setTelefone2(txTel2.getText());
         else
             u.setTelefone2("0");
@@ -280,14 +286,21 @@ public class GerenciarUsuario implements Initializable {
         u.setBairro(txBairro.getText());
         u.setCidade(txCidade.getText());
         u.setEstado(txEstado.getText());
-        if(cbCargo.getValue().equals("Administrador")) {
-            u.setCargo(0);
-        } else if(cbCargo.getValue().equals("Supervisor")) {
-            u.setCargo(1);
-        } else if(cbCargo.getValue().equals("Almoxarife")) {
-            u.setCargo(2);
-        } else if(cbCargo.getValue().equals("Caixa")) {
-            u.setCargo(3);
+        switch (cbCargo.getValue()) {
+            case "Administrador":
+                u.setCargo(0);
+                break;
+            case "Supervisor":
+                u.setCargo(1);
+                break;
+            case "Almoxarife":
+                u.setCargo(2);
+                break;
+            case "Caixa":
+                u.setCargo(3);
+                break;
+            default:
+                break;
         }
         u.setLogin(txLogin.getText());
         u.setSenha(txSenha.getText());

@@ -27,7 +27,6 @@ public class ConnectionFactory {
                     con.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
             }
     }
 
@@ -42,7 +41,6 @@ public class ConnectionFactory {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
@@ -57,7 +55,6 @@ public class ConnectionFactory {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 

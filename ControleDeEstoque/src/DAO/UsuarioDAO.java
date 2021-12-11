@@ -31,7 +31,6 @@ public class UsuarioDAO {
                 check = true;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return check;
@@ -72,7 +71,6 @@ public class UsuarioDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -111,7 +109,6 @@ public class UsuarioDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -151,7 +148,6 @@ public class UsuarioDAO {
                 lista.add(user);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -194,7 +190,6 @@ public class UsuarioDAO {
                 lista.add(user);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -237,7 +232,6 @@ public class UsuarioDAO {
                 lista.add(user);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -264,7 +258,6 @@ public class UsuarioDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -303,7 +296,6 @@ public class UsuarioDAO {
                 user.setSenha(rs.getString("senha"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -342,7 +334,6 @@ public class UsuarioDAO {
                 user.setSenha(rs.getString("senha"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -381,7 +372,6 @@ public class UsuarioDAO {
                 user.setSenha(rs.getString("senha"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -395,14 +385,13 @@ public class UsuarioDAO {
         ResultSet rs = null;
 
         try {
-            stmt = con.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'usuario' AND table_schema = 'controlx'");
+            stmt = con.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'usuario' AND table_schema = 'estoque'");
             rs = stmt.executeQuery();
 
             if (rs.next()){
                 id = rs.getInt("AUTO_INCREMENT");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return id;
@@ -425,7 +414,6 @@ public class UsuarioDAO {
                check = false;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }

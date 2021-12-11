@@ -38,7 +38,6 @@ public class ProdutoDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -64,7 +63,6 @@ public class ProdutoDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -94,7 +92,6 @@ public class ProdutoDAO {
                 lista.add(prod);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -122,7 +119,6 @@ public class ProdutoDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -152,7 +148,6 @@ public class ProdutoDAO {
                 prod.setCat(catDAO.read(rs.getInt("idCategoria")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -183,7 +178,6 @@ public class ProdutoDAO {
                     prod.setCat(catDAO.read(rs.getInt("idCategoria")));
                 }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -215,7 +209,6 @@ public class ProdutoDAO {
                 prod.setCat(catDAO.read(rs.getInt("idCategoria")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -247,7 +240,6 @@ public class ProdutoDAO {
                 lista.add(prod);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -279,7 +271,6 @@ public class ProdutoDAO {
                 lista.add(prod);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -311,7 +302,6 @@ public class ProdutoDAO {
                 lista.add(prod);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -345,7 +335,6 @@ public class ProdutoDAO {
                 lista.add(prod);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -379,7 +368,6 @@ public class ProdutoDAO {
                 lista.add(prod);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -394,14 +382,13 @@ public class ProdutoDAO {
         ResultSet rs = null;
 
         try {
-            stmt = con.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'produtos' AND table_schema = 'controlx'");
+            stmt = con.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'produtos' AND table_schema = 'estoque'");
             rs = stmt.executeQuery();
 
             if (rs.next()){
                 id = rs.getInt("AUTO_INCREMENT");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return id;

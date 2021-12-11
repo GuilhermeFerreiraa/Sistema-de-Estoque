@@ -89,8 +89,7 @@ public class Historico implements Initializable {
             if (venda){
                 tpPane.getSelectionModel().select(tpVenda);
             }
-        }catch (Exception e) {
-            e.printStackTrace();
+        }catch (ClassNotFoundException e) {
         }
 
     }
@@ -106,7 +105,7 @@ public class Historico implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -121,13 +120,12 @@ public class Historico implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
     public void fillTables() throws ClassNotFoundException {
         //Table VENDA
-
         tbVendas.getItems().clear();
         tbVendas.getColumns().clear();
 

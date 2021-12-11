@@ -19,20 +19,15 @@ import models.Venda;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.stage.Modality;
 
-public class VisualizarVenda implements Initializable{
-
-    @FXML
-    private AnchorPane apPane;
+public class VisualizarVenda implements Initializable {
 
     @FXML
-    private Label lbCompraNum;
+    private AnchorPane apPane ;
 
     @FXML
     private TableView<Produto> tbProdutos;
-
-    @FXML
-    private Button btVoltar;
 
     @FXML
     private TextField txId;
@@ -56,11 +51,13 @@ public class VisualizarVenda implements Initializable{
         fillFields();
     }
 
-    VisualizarVenda(){
+    VisualizarVenda() {
+        this.apPane = new AnchorPane();
 
     }
 
-    VisualizarVenda(Venda venda){
+    VisualizarVenda(Venda venda) {
+        this.apPane = new AnchorPane();
         this.venda = venda;
     }
 
@@ -74,23 +71,25 @@ public class VisualizarVenda implements Initializable{
         Main.stage.hide();
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
-        //primaryStage.initModality(Modality.WINDOW_MODAL);
-        //primaryStage.initOwner(apPane.getScene().getWindow());
+        primaryStage.initModality(Modality.WINDOW_MODAL);
+
+
+//            primaryStage.initOwner(apPane.getScene().getWindow());
+        
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
     public void botaoVoltar() throws IOException {
-            new Historico().showVenda(true);
+        new Historico().showVenda(true);
     }
 
-    public void fillFields(){
+    public void fillFields() {
         txDataVenda.setText(venda.getData().toString());
         txId.setText(String.valueOf(venda.getId()));
         txTotal.setText(String.valueOf(venda.getValor()));
         txUsuario.setText(venda.getUsuario().getNome());
-
 
         tbProdutos.getItems().clear();
         tbProdutos.getColumns().clear();

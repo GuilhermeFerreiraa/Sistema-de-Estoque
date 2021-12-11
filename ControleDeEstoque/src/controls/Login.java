@@ -47,7 +47,7 @@ public class Login implements Initializable {
             Main.stage.setTitle("Entrar");
             Main.stage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
             Main.stage.setResizable(false);
-            Main.stage.getIcons().add(new Image("images/controlx.png"));
+            Main.stage.getIcons().add(new Image("images/boxstore.png"));
             Main.stage.show();
         }
 
@@ -62,7 +62,7 @@ public class Login implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 

@@ -25,8 +25,6 @@ public class MenuPrincipal implements Initializable
     @FXML
     private Label lbDate;
     @FXML
-    private Button btProdutos;
-    @FXML
     private Button btFornecedores;
     @FXML
     private Button btCompras;
@@ -34,8 +32,6 @@ public class MenuPrincipal implements Initializable
     private Button btUsuarios;
     @FXML
     private Button btVender;
-    @FXML
-    private Button btHistoricos;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,14 +56,21 @@ public class MenuPrincipal implements Initializable
 
     public void usuario(){
         lbUser.setText(Login.getUser().getNome());
-        if(Login.getUser().getCargo() == 0) {
-            lbCargo.setText("Administrador");
-        } else if(Login.getUser().getCargo() == 1) {
-            lbCargo.setText("Supervisor");
-        } else if(Login.getUser().getCargo() == 2) {
-            lbCargo.setText("Almoxarife");
-        } else if(Login.getUser().getCargo() == 3) {
-            lbCargo.setText("Caixa");
+        switch (Login.getUser().getCargo()) {
+            case 0:
+                lbCargo.setText("Administrador");
+                break;
+            case 1:
+                lbCargo.setText("Supervisor");
+                break;
+            case 2:
+                lbCargo.setText("Almoxarife");
+                break;
+            case 3:
+                lbCargo.setText("Caixa");
+                break;
+            default:
+                break;
         }
     }
 
@@ -77,19 +80,19 @@ public class MenuPrincipal implements Initializable
         root.setControllerFactory(c -> {
             return new MenuPrincipal();
         });
-        primaryStage.setTitle("Menu");
+        primaryStage.setTitle("Página Inicial");
         Main.stage.hide();
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
     public void btProdutos() throws IOException {
         new Estoque().show();
     }
-
+    
     public void btCompras() throws IOException {
         new Compras().show();
     }

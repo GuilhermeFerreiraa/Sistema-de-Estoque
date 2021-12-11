@@ -9,20 +9,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import models.Produto;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javax.swing.text.html.ListView;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.*;
 import models.Produto;
-import models.Usuario;
 import models.Venda;
 
 public class Vendas implements Initializable{
@@ -76,7 +72,6 @@ public class Vendas implements Initializable{
             txPrecoTotal.clear();
             precoTotal = 0;
         }catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -99,7 +94,7 @@ public class Vendas implements Initializable{
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -113,14 +108,13 @@ public class Vendas implements Initializable{
             alert.getButtonTypes();
 
             Optional<ButtonType> result = alert.showAndWait();
-            if(!result.isPresent())
-                return;
-            else if(result.get() == ButtonType.OK) {
+            if(!result.isPresent()) {
+            } else if(result.get() == ButtonType.OK) {
                 new MenuPrincipal().show();
                 produtos.clear();
             }
-            else if(result.get() == ButtonType.CANCEL)
-                return;
+            else if(result.get() == ButtonType.CANCEL) {
+            }
         }
         else {
             new MenuPrincipal().show();
@@ -196,10 +190,11 @@ public class Vendas implements Initializable{
 
         ObservableList<Produto> prod = FXCollections.observableArrayList();
 
-        for (Produto p : produtos) { //Para cada produto presente na lista estÃ¡tica
+        produtos.forEach((p) -> {
+            //Para cada produto presente na lista estÃ¡tica
             //Adicionamos na observable list
             prod.add(new Produto(p.getId(), p.getNome(), p.getPreco(), p.getQtd(), p.getTipoUn(), p.getCat()));
-        }
+        });
 
         TableColumn<Produto, String> idColumn = new TableColumn<>("ID");
         idColumn.setMinWidth(30);

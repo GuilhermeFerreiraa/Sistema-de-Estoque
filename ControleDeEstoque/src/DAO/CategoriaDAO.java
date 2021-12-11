@@ -2,7 +2,6 @@ package DAO;
 
 import connection.ConnectionFactory;
 import models.Categoria;
-import models.Produto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +28,6 @@ public class CategoriaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -47,7 +45,6 @@ public class CategoriaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -70,7 +67,6 @@ public class CategoriaDAO {
                 lista.add(cat);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -96,7 +92,6 @@ public class CategoriaDAO {
                 lista.add(cat);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -122,7 +117,6 @@ public class CategoriaDAO {
                 lista.add(cat);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
@@ -149,7 +143,6 @@ public class CategoriaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -172,7 +165,6 @@ public class CategoriaDAO {
                 cat.setNome(rs.getString("nome"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return cat;
@@ -195,7 +187,6 @@ public class CategoriaDAO {
                 cat.setNome(rs.getString("nome"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return cat;
@@ -218,7 +209,6 @@ public class CategoriaDAO {
                 cat.setNome(rs.getString("nome"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return cat;
@@ -233,14 +223,13 @@ public class CategoriaDAO {
         ResultSet rs = null;
 
         try {
-            stmt = con.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'categoria' AND table_schema = 'controlx'");
+            stmt = con.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'categoria' AND table_schema = 'estoque'");
             rs = stmt.executeQuery();
 
             if (rs.next()){
                 id = rs.getInt("AUTO_INCREMENT");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
             return id;

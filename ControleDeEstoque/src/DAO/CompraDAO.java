@@ -1,20 +1,15 @@
 package DAO;
 
 import connection.ConnectionFactory;
-import models.Categoria;
 import models.Compra;
 import models.Produto;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
-import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class CompraDAO {
@@ -48,6 +43,7 @@ public class CompraDAO {
 
             for (Produto p: c.getProdutos()) {
 
+                @SuppressWarnings("UnusedAssignment")
                 PreparedStatement st = null;
                 Connection conn = ConnectionFactory.getConnection();
 
@@ -71,7 +67,6 @@ public class CompraDAO {
             }
             sucess = true;
         } catch (SQLException e) {
-            e.printStackTrace();
             sucess = false;
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
@@ -86,7 +81,7 @@ public class CompraDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        stmt = con.prepareStatement("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'controlx' AND TABLE_NAME = 'compras'");
+        stmt = con.prepareStatement("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'estoque' AND TABLE_NAME = 'compras'");
         rs = stmt.executeQuery();
         if (rs.next()) {
             int id = (rs.getInt("AUTO_INCREMENT"));

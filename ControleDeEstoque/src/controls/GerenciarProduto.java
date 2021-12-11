@@ -91,7 +91,6 @@ public class GerenciarProduto implements Initializable {
                 preencher();
             }
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -131,20 +130,19 @@ public class GerenciarProduto implements Initializable {
     public void show(boolean view, boolean edit, int id) throws IOException {
         Stage primaryStage = new Stage();
         FXMLLoader root = new FXMLLoader(getClass().getResource("/views/GerenciarProduto.fxml"));
-        root.setControllerFactory(c -> {
-                    try {
-                        return new GerenciarProduto(view, edit, id);
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                        return new GerenciarProduto();
-                    }
-                });
+        root.setControllerFactory((Class<?> c) -> {
+            try {
+                return new GerenciarProduto(view, edit, id);
+            } catch (ClassNotFoundException e) {
+                return new GerenciarProduto();
+            }
+        });
         primaryStage.setTitle("Gerenciar Produto");
         Main.stage.hide();
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -154,12 +152,12 @@ public class GerenciarProduto implements Initializable {
         root.setControllerFactory(c -> {
                 return new GerenciarProduto();
         });
-        primaryStage.setTitle("ControlX - Adicionar Produto");
+        primaryStage.setTitle("Adicionar Produto");
         Main.stage.hide();
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(false);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 

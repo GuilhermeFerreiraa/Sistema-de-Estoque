@@ -44,7 +44,6 @@ public class Categorias implements Initializable {
             listView(cdao.listAll());
             verificaSelecao();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -59,7 +58,7 @@ public class Categorias implements Initializable {
         Main.stage = primaryStage;
         primaryStage.setScene(new Scene(root.load(), primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.setResizable(true);
-        Main.stage.getIcons().add(new Image("images/controlx.png"));
+        Main.stage.getIcons().add(new Image("images/boxstore.png"));
         primaryStage.show();
     }
 
@@ -94,7 +93,7 @@ public class Categorias implements Initializable {
     public void botaoRemoveCategoria() throws ClassNotFoundException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Remover categoria");
-        alert.setHeaderText("Esta categoria será¡ removida permanentemente.");
+        alert.setHeaderText("Esta categoria será removida permanentemente.");
         alert.setContentText("Deseja continuar?");
 
         Optional<ButtonType> result = alert.showAndWait();
