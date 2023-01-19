@@ -11,3 +11,4 @@ Sistema de gerenciamento de estoque. Feito em Java utilizando JavaFx para o fron
 ## +Infos
 - Este projeto foi desenvolvido por: Guilherme Ferreira.
 - Projeto feito para fins de pesquisa e estudos!
+- Utilizado o conceito de estrutura MVC.
